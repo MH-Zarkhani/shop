@@ -43,7 +43,7 @@ class CategoryController extends Controller
     {
 
         $this->validate($request, [
-            'title' => 'required'
+            'title' => 'required|min:3|unique:categories,title'
         ]);
 
         Category::create([
@@ -51,7 +51,7 @@ class CategoryController extends Controller
             'category_id' => $request->category_id
         ]);
 
-        return back();
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -73,7 +73,11 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit',[
+            'user' => auth()->user(),
+            'category' => $category,
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -85,7 +89,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|min:3'
+        ]);
+        $category->update([
+            'title' => $request->title,
+            'category_id' => $request->category_id
+        ]);
+
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -96,6 +108,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return back();
     }
 }

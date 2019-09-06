@@ -8,13 +8,7 @@
                 <h3 class="card-title">Category List</h3>
 
                 <div class="card-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                        </div>
-                    </div>
+                <a href="{{ route('admin.category.create') }}" class="btn btn-primary">Create Category  <i class="fa fa-plus-square"></i></a>
                 </div>
             </div>
             <!-- /.card-header -->
@@ -26,6 +20,7 @@
                         <th>Title</th>
                         <th>Parent</th>
                         <th>Created At</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,6 +30,16 @@
                         <td>{{ $category->title }}</td>
                         <td>{{ $category->parentCategory != null ? $category->parentCategory->title : "-" }}</td>
                         <td>{{ $category->created_at->diffForHumans() }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <form action="{{ route('admin.category.destroy',$category) }}" method="post">
+                                  @method('DELETE')
+                                  @csrf
+                                  <a href="{{ route('admin.category.edit',$category) }}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
+                                  <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                               </form>
+                            </div>
+                        </td>
                     </tr>
                         @endforeach
                     </tbody>

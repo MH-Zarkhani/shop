@@ -34,7 +34,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview">
+            <li class="nav-item has-treeview {{ request()->is('admin2/category*')  ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>

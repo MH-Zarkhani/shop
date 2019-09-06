@@ -21,11 +21,11 @@ Route::get("/dev", function () {
 //        'name' => 'admin'
 //    ]);
 
-    return request()->path() == "dev";
+// return request()->path() == "dev";
 
-    $user = \App\User::all()[0];
+    // $user = \App\User::all()[0];
 
-    return $user->assignRole('admin');
+    // return $user->assignRole('admin');
 });
 
 Route::group(['prefix' => 'admin2', 'middleware' => 'role:admin', 'as' => 'admin.'], function () {
