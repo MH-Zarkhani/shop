@@ -1,7 +1,7 @@
 @extends('admin.layout.master')
 
 @section('content')
-
+    
     <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
             <!-- general form elements -->
@@ -14,10 +14,11 @@
                 <form role="form" action="{{ route('admin.category.store') }}" method="post">
                     @csrf
                     <div class="card-body">
+                        @include('admin.layout.error')
                         <div class="form-group">
                             <label for="title">Category Title</label>
                             <input name="title" class="form-control" id="title"
-                                   placeholder="Enter Title" required>
+                        placeholder="Enter Title" required value="{{ old('title') }}">
                         </div>
                         <div class="form-group">
                             <label for="parent">Parent Category</label>

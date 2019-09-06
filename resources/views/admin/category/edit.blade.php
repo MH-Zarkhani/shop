@@ -15,6 +15,7 @@
                     @csrf
                     @method('PATCH')
                     <div class="card-body">
+                        @include('admin.layout.error')
                         <div class="form-group">
                             <label for="title">Category Title</label>
                             <input name="title" class="form-control" id="title"
