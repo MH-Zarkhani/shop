@@ -14,9 +14,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        $categories = Category::with('parentCategory')->get();
         return view('admin.category.index', [
             'user' => auth()->user(),
-            'categories' => Category::all()
+            'categories' => $categories
         ]);
     }
 
