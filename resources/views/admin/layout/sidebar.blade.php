@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
-        <img src="../../dist/img/AdminLTELogo.png"
+        <img src="{{ asset('admin/img/AdminLTELogo.png') }}"
              alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3"
              style="opacity: .8">
@@ -13,7 +13,7 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="{{ asset('admin/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block">{{ $user->name }}</a>
@@ -34,7 +34,7 @@
                     </a>
                 </li>
             <li class="nav-item has-treeview {{ request()->is('admin2/category*')  ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link {{ request()->is('admin2/category*')  ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Category
@@ -43,20 +43,42 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.category.index') }}" class="nav-link">
+                            <a href="{{ route('admin.category.index') }}" class="nav-link {{ request()->is('admin2/category')  ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Category List</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.category.create') }}" class="nav-link">
+                            <a href="{{ route('admin.category.create') }}" class="nav-link {{ request()->is('admin2/category/create')  ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Create Category</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-
+            <li class="nav-item has-treeview {{ request()->is('admin2/product*')  ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->is('admin2/product*')  ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-mobile-alt"></i>
+                        <p>
+                            Product
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.product.index') }}" class="nav-link {{ request()->is('admin2/product')  ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Product List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.product.create') }}" class="nav-link {{ request()->is('admin2/product/create')  ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Create Product</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

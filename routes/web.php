@@ -32,6 +32,7 @@ Route::group(['prefix' => 'admin2', 'middleware' => 'role:admin', 'as' => 'admin
 
     Route::get('/', 'Admin\AdminController@dashboard')->name('dashboard');
     Route::resource('category', 'CategoryController');
+    Route::resource('product', 'ProductController');
 
 });
 
