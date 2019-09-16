@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Purchase;
 use Illuminate\Http\Request;
 
-class PurchaseController extends Controller
+class PurchaseController extends BaseAdminController
 {
     /**
      * Display a listing of the resource.

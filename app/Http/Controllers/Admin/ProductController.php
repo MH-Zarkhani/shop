@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
-class ProductController extends Controller
+class ProductController extends BaseAdminController
 {
     /**
      * Display a listing of the resource.

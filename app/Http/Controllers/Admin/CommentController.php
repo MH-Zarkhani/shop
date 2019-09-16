@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Factor;
+use App\Comment;
 use Illuminate\Http\Request;
 
-class FactorController extends Controller
+class CommentController extends BaseAdminController
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class FactorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Factor  $factor
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(Factor $factor)
+    public function show(Comment $comment)
     {
         //
     }
@@ -52,10 +52,10 @@ class FactorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Factor  $factor
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Factor $factor)
+    public function edit(Comment $comment)
     {
         //
     }
@@ -64,10 +64,10 @@ class FactorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Factor  $factor
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Factor $factor)
+    public function update(Request $request, Comment $comment)
     {
         //
     }
@@ -75,10 +75,10 @@ class FactorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Factor  $factor
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Factor $factor)
+    public function destroy(Comment $comment)
     {
         //
     }

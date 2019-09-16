@@ -28,9 +28,9 @@ Route::get("/dev", function () {
     // return $user->assignRole('admin');
 });
 
-Route::group(['prefix' => 'admin2', 'middleware' => 'role:admin', 'as' => 'admin.'], function () {
+Route::group(['prefix' => 'admin2', 'namespace' => 'Admin' ,'middleware' => 'role:admin', 'as' => 'admin.'], function () {
 
-    Route::get('/', 'Admin\AdminController@dashboard')->name('dashboard');
+    Route::get('/', 'AdminController@dashboard')->name('dashboard');
     Route::resource('category', 'CategoryController');
     Route::resource('product', 'ProductController');
 
